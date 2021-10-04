@@ -1,15 +1,9 @@
 package br.com.med.clinica.atendimento.controller;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,10 +11,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.med.clinica.atendimento.model.Atendimento;
 import br.com.med.clinica.atendimento.model.Droga;
-import br.com.med.clinica.atendimento.model.Exame;
 import br.com.med.clinica.atendimento.model.Item;
 import br.com.med.clinica.atendimento.model.Receita;
-import br.com.med.clinica.atendimento.repository.AtendimentoRepository;
 import br.com.med.clinica.atendimento.repository.DrogaRepository;
 import br.com.med.clinica.atendimento.repository.ItemRepository;
 import br.com.med.clinica.atendimento.repository.ReceitaRepository;
@@ -36,15 +28,6 @@ public class ReceitaController {
 
 	@Autowired
 	private ItemRepository itemRepository;
-
-	@GetMapping("/atendimento/receita")
-	public String listReceita(Model model) {
-		List<Receita> receita = receitaRepository.findAll();
-		model.addAttribute("receita", receita);
-			return "/atendimento/receita";
-
-	}
-	
 	
 	@GetMapping("/receita/form")
 	public String form(ReceitaDTO receitaDTO, @Param(value = "id") Long id,Model model) {
