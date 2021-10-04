@@ -10,7 +10,6 @@ import br.com.med.clinica.agendamento.model.Convenio;
 @Repository
 public interface ConvenioRepository extends CrudRepository<Convenio, Long>{
 
-	
 	List<Convenio> findAll();
 
 }
