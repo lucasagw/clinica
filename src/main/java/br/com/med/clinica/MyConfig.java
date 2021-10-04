@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@EntityScan(basePackages = "br.com.med.clinica.administrativo.model")
+@EntityScan(basePackages = {"br.com.med.clinica.administrativo.model", "br.com.med.clinica.agendamento.model", "br.com.med.clinica.atendimento.model"})
 @ComponentScan(basePackages = { "br.*" })
 @EnableJpaRepositories(basePackages = { "br.com.med.clinica.atendimento.repository", "br.com.med.clinica.administrativo.repository", "br.com.med.clinica.agendamento.repository" })
 @EnableTransactionManagement
