@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception { // define os acessos
 		http.requiresChannel().requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null).requiresSecure();
 
-		http.authorizeRequests().antMatchers(HttpMethod.GET,"/").permitAll() // recursos permitidos
+		http.authorizeRequests().antMatchers("/").permitAll() // recursos permitidos
 				.anyRequest().authenticated() // qualquer outro recurso, irá precisar de autenticação
 				.and()
 				.formLogin().permitAll()// permite acesso a loginpage default, caso não continuar com o codigo a seguir
